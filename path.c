@@ -12,6 +12,7 @@ char *get_path(char *input_line)
 	char *path = _getenv("PATH"); /* Get the PATH environment variable */
 	char *token, *complete_path;
 	char *tmp_path = strdup(path); /* Duplicate the PATH string to tokenize */
+	struct stat st;
 
 	if (input_line == NULL)
 		exit(EXIT_FAILURE);
@@ -26,11 +27,10 @@ char *get_path(char *input_line)
 			free(tmp_path); /* Free the memory allocated for tmp_path */
 			return (NULL); /* Return NULL if memory allocation failed */
 		}
-		strcpy(complete_path, token); /* Copy the token to file_path */
-		strcat(complete_path, "/"); /* Concatenate a slash to the file_path */
-		strcat(complete_path, input_line); /* Concat the input_line to the file_path */
+		/* Concatenate the token and input_line to get the complete path */
+		sprintf(complete_path, "%s/%s", token, input_line);
 
-		if (access(complete_path, F_OK) != -1)
+		if (stat(complete_path, &st) == 0)
 		{
 			free(tmp_path);
 			return (complete_path);
