@@ -19,7 +19,7 @@ char **split_string(char *line)
 		exit(EXIT_FAILURE);
 	}
 	strcpy(tmp_line, line);
-	token = strtok(line, " \t\r\n\a");
+	token = strtok(line, " \t\n");
 	while (token)
 	{
 		args_array[index] = malloc(strlen(token) + 1);
@@ -27,7 +27,7 @@ char **split_string(char *line)
 			perror("Error on malloc"), exit(EXIT_FAILURE);
 
 		strcpy(args_array[index], token);
-		token = strtok(NULL, " \t\r\n\a");
+		token = strtok(NULL, " \t\n");
 		index++;
 	}
 	args_array[index] = NULL;

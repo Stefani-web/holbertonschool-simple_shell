@@ -15,7 +15,7 @@ void execute_command(char **command_args, int command_number)
 	/* Fork a new process */
 	pid = fork();
 	/* Check if fork failed */
-	if (pid == -1)
+	if (pid < 0)
 		perror("Error on fork");
 	/* Child process */
 	else if (pid == 0)
@@ -32,7 +32,6 @@ void execute_command(char **command_args, int command_number)
 			free_args(command_args);
 			exit(EXIT_FAILURE);
 		}
-		/* Execute the command */
 		execve(command_path, command_args, environ);
 		/* Print error message and exit if execve fails */
 		perror("Error on execve");
