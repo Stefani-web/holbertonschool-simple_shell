@@ -9,7 +9,7 @@
  */
 char *get_path(char *input_line)
 {
-	char *path = _getenv("PATH"); /* Get the PATH environment variable */
+	char *path = getenv("PATH"); /* Get the PATH environment variable */
 	char *token, *complete_path;
 	char *tmp_path = strdup(path); /* Duplicate the PATH string to tokenize */
 	struct stat st;
