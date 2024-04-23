@@ -1,1 +1,2 @@
-# holbertonschool-simple_shell
+# <p align="center">Simple Shell en C</p>
+
