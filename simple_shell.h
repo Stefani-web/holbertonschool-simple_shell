@@ -16,7 +16,7 @@ extern char **environ;
 char **split_string(char *line);
 char *get_path(char *input_line);
 void free_args(char **strings_array);
-void execute_command(char **command_args, int command_number);
+void execute_command(char **command_args, int command_count);
 char *_getenv(const char *name);
 
 #endif

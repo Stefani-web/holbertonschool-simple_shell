@@ -9,43 +9,34 @@
  */
 char *get_path(char *input_line)
 {
+	char *path = _getenv("PATH"); /* Get the PATH environment variable */
+	char *token, *complete_path;
+	char *tmp_path = strdup(path); /* Duplicate the PATH string to tokenize */
+
 	if (input_line == NULL)
 		exit(EXIT_FAILURE);
-	/* If input_line not contains slashes, search for the file in PATH */
-	if (strchr(input_line, '/') == NULL)
+
+	token = strtok(tmp_path, ":"); /* Tokenize the PATH string */
+	while (token)
 	{
-		char *path = _getenv("PATH"); /* Get the PATH environment variable */
-		char *token, *file_path;
-		char *tmp_path = strdup(path); /* Duplicate the PATH string to tokenize */
-
-		if (tmp_path == NULL)
+		complete_path = malloc(strlen(token) + strlen(input_line) + 2);
+		if (complete_path == NULL) /* Check if memory allocation for file_path failed */
 		{
-			perror("Error on malloc");
-			exit(EXIT_FAILURE);
+			perror("Malloc failed");
+			free(tmp_path); /* Free the memory allocated for tmp_path */
+			return (NULL); /* Return NULL if memory allocation failed */
 		}
-		token = strtok(tmp_path, ":"); /* Tokenize the PATH string */
-		while (token)
-		{
-			file_path = malloc(strlen(token) + strlen(input_line) + 2);
-			if (file_path == NULL) /* Check if memory allocation for file_path failed */
-			{
-				free(tmp_path); /* Free the memory allocated for tmp_path */
-				return (NULL); /* Return NULL if memory allocation failed */
-			}
-			strcpy(file_path, token); /* Copy the token to file_path */
-			strcat(file_path, "/"); /* Concatenate a slash to the file_path */
-			strcat(file_path, input_line); /* Concat the input_line to the file_path */
+		strcpy(complete_path, token); /* Copy the token to file_path */
+		strcat(complete_path, "/"); /* Concatenate a slash to the file_path */
+		strcat(complete_path, input_line); /* Concat the input_line to the file_path */
 
-			if (access(file_path, F_OK) != -1)
-			{
-				free(tmp_path);
-				return (file_path);
-			}
-			free(file_path);
-			token = strtok(NULL, ":"); /* Move to the next token */
+		if (access(complete_path, F_OK) != -1)
+		{
+			free(tmp_path);
+			return (complete_path);
 		}
-		free(tmp_path);
-		return (NULL); /* Return NULL if the file is not found */
+		free(complete_path);
+		token = strtok(NULL, ":"); /* Move to the next token */
 	}
-	return (input_line); /* If input contains /, it is already a full path */
+	return (NULL); /* Return NULL if the file is not found */
 }

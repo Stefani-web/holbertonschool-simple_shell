@@ -5,7 +5,7 @@
  * @command_args: Array containing the command and its arguments.
  * @command_number: Number of the command typed by the user.
  */
-void execute_command(char **command_args, int command_number)
+void execute_command(char **command_args, int command_count)
 {
 	/* Process ID for the child process */
 	pid_t pid;
@@ -16,7 +16,10 @@ void execute_command(char **command_args, int command_number)
 	pid = fork();
 	/* Check if fork failed */
 	if (pid < 0)
+	{
 		perror("Error on fork");
+		exit(EXIT_FAILURE);
+	}
 	/* Child process */
 	else if (pid == 0)
 	{
@@ -27,16 +30,18 @@ void execute_command(char **command_args, int command_number)
 		{
 			/* Print error message */
 			fprintf(stderr, "./shell: %d: %s: not found\n",
-					command_number, command_args[0]);
+					command_count, command_args[0]);
 			/* Free the memory allocated and exit */
 			free_args(command_args);
 			exit(EXIT_FAILURE);
 		}
-		execve(command_path, command_args, environ);
-		/* Print error message and exit if execve fails */
-		perror("Error on execve");
-		free_args(command_args);
-		exit(EXIT_FAILURE);
+		if (execve(command_path, command_args, NULL) == -1)
+		{
+			/* Print error message and exit if execve fails */
+			perror("Error on execve");
+			free_args(command_args);
+			exit(EXIT_FAILURE);
+		}
 	}
 	/* Parent process */
 	else
