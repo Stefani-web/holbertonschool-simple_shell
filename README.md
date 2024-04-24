@@ -50,6 +50,24 @@ To start the shell you need to run this binary file. Here are the general steps:
 ./hsh
 ```
 
+## ➤ Check for memory leaks
+
+Installing Valgrind:
+Valgrind is a debugging tool that helps detect memory leaks, memory usage errors, and other memory-related issues.
+To install it, open a terminal and run the appropriate command depending on your operating system:
+On Linux (Debian/Ubuntu):
+```
+sudo apt-get install valgrind
+```
+Using Valgrind:
+After installing Valgrind, you can use it to check your program (for example, your shell) for memory leaks.
+To run Valgrind on your program, use the following command (replacing your_program with the name of your binary):
+```
+valgrind --leak-check=full ./hsh
+```
+**--leak-check=full** enables full memory leak checking.
+Valgrind will display any memory leaks and other issues detected.
+
 ## ➤ MAN
 
 command use :
@@ -61,7 +79,7 @@ man ./man_1_simple_shell
 
 ```
 ```
-
+TO DO
 ```
 ```
 
