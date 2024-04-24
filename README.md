@@ -1,7 +1,7 @@
 # <p align="center">Simple Shell - C</p>
 
 <p align="center">
-<img src="https://cdn.discordapp.com/attachments/1230499916309069895/1232287357772759050/SimpleShellenC.gif?ex=6628e888&is=66279708&hm=5752a643225e25e621725fb966d68e3b8f31a071b0c1f863448d7be713dcedfa&" alt="simple shell en C"/>
+<img src="https://github.com/Stefani-web/holbertonschool-simple_shell/commit/8fdc42fd21070b344d91e633a3ea490379212b09" alt="simple shell en C"/>
 </p>
 
 ## ➤ DESCRIPTION
