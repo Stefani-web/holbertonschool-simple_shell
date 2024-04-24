@@ -10,7 +10,7 @@ SimpleShell is a basic shell written in C, designed to provide an interface betw
 
 ## ➤ UML - ACTIVITY DIAGRAM
 
-TO DO
+<a><img src="https://github.com/Stefani-web/holbertonschool-simple_shell/blob/0f03fe9f103fb69429331aa10ba176d13b21d031/UML_simpleshell.png" alt="Activity Diagram" width="500"></a>
 
 ## ➤ INSTALLATION INSTRUCTIONS AND HOW TO USE IT
 
