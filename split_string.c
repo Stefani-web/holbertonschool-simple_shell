@@ -14,7 +14,7 @@ char **split_string(char *line)
 
 	char **args_array = malloc(sizeof(char *) * MAX_ARGS); /* Allocate memory for the array of arguments */
 
-	if (tmp_line == NULL || args_array == NULL)
+	if (args_array == NULL)
 	{
 		perror("Error on malloc");
 		exit(EXIT_FAILURE);
