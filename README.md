@@ -1,18 +1,18 @@
-# <p align="center">Simple Shell - C</p>
+# <p align="center">Simple_Shell - C</p>
 
 <p align="center">
-<img src="https://cdn.discordapp.com/attachments/1217825406699180052/1232665014717120572/SimpleShell.jpg?ex=662a4841&is=6628f6c1&hm=fbe5c3fcda6a486c3ffb2dd1db7480d4e3eed39434f273fdc5aa98bfe3dd4d23&" alt="simple shell en C"/>
+<img src="https://cdn.discordapp.com/attachments/1217825406699180052/1232665014717120572/SimpleShell.jpg?ex=662a4841&is=6628f6c1&hm=fbe5c3fcda6a486c3ffb2dd1db7480d4e3eed39434f273fdc5aa98bfe3dd4d23&" alt="Created illustration SShell en C"/>
 </p>
 
 ## ➤ DESCRIPTION
 
 SimpleShell is a basic shell written in C, designed to provide an interface between the user and the operating system. It allows users to enter commands through a command line interface, which are then executed by the system
 
-## ➤ UML ACTIVITY DIAGRAM
+## ➤ UML - ACTIVITY DIAGRAM
 
 TO DO
 
-## ➤ INSTALLATION INSTRUCTIONS and How to use it
+## ➤ INSTALLATION INSTRUCTIONS AND HOW TO USE IT
 
 ```
 To compile and run SimpleShell project in C, follow the steps below:
@@ -72,7 +72,7 @@ valgrind --leak-check=full ./hsh
 **--leak-check=full** enables full memory leak checking.
 Valgrind will display any memory leaks and other issues detected.
 
-TO DO IMG
+![valgrind Test](https://cdn.discordapp.com/attachments/1230499916309069895/1232696943759855806/valgring_test.jpg?ex=662a65fd&is=6629147d&hm=992ec3937d614a6a0f6acbec16a2cb6cc7a902e139d305803595b0c27f456d53&)
 
 ## ➤ MAN
 
@@ -81,12 +81,30 @@ command use :
 man ./man_1_simple_shell
 ```
 
-## ➤ EXAMPLES
+## ➤ EXAMPLES TESTING
 
+Testing your shell should work like this in interactive mode:
 ```
+$ ./hsh
+($) /bin/ls
+hsh main.c shell.c
+($)
+($) exit
+$
 ```
-TO DO
+But also in non-interactive mode:
 ```
+$ echo "/bin/ls" | ./hsh
+hsh main.c shell.c test_ls_2
+$
+$ cat test_ls_2
+/bin/ls
+/bin/ls
+$
+$ cat test_ls_2 | ./hsh
+hsh main.c shell.c test_ls_2
+hsh main.c shell.c test_ls_2
+$
 ```
 
 ## ➤ LIBRARIES USED
