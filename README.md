@@ -8,6 +8,10 @@
 
 SimpleShell is a basic shell written in C, designed to provide an interface between the user and the operating system. It allows users to enter commands through a command line interface, which are then executed by the system
 
+## ➤ UML ACTIVITY DIAGRAM
+
+TO DO
+
 ## ➤ INSTALLATION INSTRUCTIONS and How to use it
 
 ```
@@ -33,7 +37,7 @@ here we will use the following compilation:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
 
-## Execution
+## EXECUTION
 
 Run the generated binary to start the shell.
 To start the shell you need to run this binary file. Here are the general steps:
@@ -67,6 +71,8 @@ valgrind --leak-check=full ./hsh
 ```
 **--leak-check=full** enables full memory leak checking.
 Valgrind will display any memory leaks and other issues detected.
+
+TO DO IMG
 
 ## ➤ MAN
 
