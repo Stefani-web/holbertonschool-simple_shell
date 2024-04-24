@@ -1,0 +1,49 @@
+.TH HSH 1 "April 2024" "version 1.0"
+
+.SH NAME
+.B hsh
+- a simple UNIX command line interpreter in C
+
+.SH SYNOPSIS
+.B ./hsh
+
+.SH DESCRIPTION
+.B Hsh
+is a basic UNIX command-line shell written in C. It provides a minimalistic shell environment where users can execute commands entered from the terminal.
+
+.PP
+The shell reads commands from the standard input, executes them, and prints the output to the standard output. It supports basic shell functionalities such as executing external commands, handling input/output redirection, and managing environment variables.
+
+.PP
+The shell supports interactive mode, where it displays a prompt to the user and waits for input. It also supports non-interactive mode, where it executes commands from a script file.
+
+.SH OPTIONS
+.B None
+
+.SH COMMANDS
+The shell supports the following built-in commands:
+
+.TP
+.B exit
+Exit the shell.
+
+.TP
+.B env
+Print the current environment variables.
+
+.PP
+All other commands are executed as external commands.
+
+.SH RETURN VALUE
+The shell returns 0 upon successful execution and non-zero values on failure.
+
+.SH SEE ALSO
+.BR bash (1),
+.BR execve (2),
+.BR fork (2),
+.BR waitpid (2),
+.BR getenv (3),
+.BR access (2)
+
+.SH AUTHORS
+Written by Inès OUAZENE and Stéphanie CARVALHO
