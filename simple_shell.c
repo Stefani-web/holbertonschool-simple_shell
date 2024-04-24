@@ -7,20 +7,17 @@
  */
 int main(void)
 {
-	int command_count = 0; /* Counter for number of commands entered by user */
+	int command_count = 0, should_continue = 1;
 	char *input_line = NULL; /* Pointer to store the input command line */
 	char **command_args; /* Pointer to store command and its arguments */
 	size_t length_input = 0; /* Length of the input line */
 	ssize_t bytes_read; /* Number of bytes read by getline() */
-	int should_continue = 1; /* Flag to continue the loop */
 
 	while (should_continue) /* Loop to run the shell program */
 	{
 		if (isatty(STDIN_FILENO)) /* Check if the shell is in interactive mode */
 			printf("HolbitesHell$ "); /* Print the prompt */
-		/* Read the input line */
 		bytes_read = getline(&input_line, &length_input, stdin);
-
 		if (bytes_read == -1) /* Check if getline() failed */
 		{
 			if (feof(stdin))
@@ -43,10 +40,8 @@ int main(void)
 				continue;
 			}
 		}
-		/* Check if the user entered "exit" */
-		if (strcmp(input_line, "exit") == 0)
+		if (strcmp(input_line, "exit") == 0) /* Check if the user entered "exit" */
 			break;
-
 		execute_command(command_args, ++command_count); /* Execute the command */
 		free_args(command_args); /* Free the command arguments */
 	}
