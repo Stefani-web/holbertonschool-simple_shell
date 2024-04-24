@@ -37,7 +37,7 @@ here we will use the following compilation:
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
 
-## EXECUTION
+## ➤ EXECUTION
 
 Run the generated binary to start the shell.
 To start the shell you need to run this binary file. Here are the general steps:
