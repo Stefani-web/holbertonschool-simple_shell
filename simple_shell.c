@@ -20,15 +20,8 @@ int main(void)
 		bytes_read = getline(&input_line, &length_input, stdin);
 		if (bytes_read == -1) /* Check if getline() failed */
 		{
-			if (feof(stdin))
-			{
-				if (isatty(STDIN_FILENO))
-					printf("\n");
-				fflush(stdout);
-				break;
-			}
-			free(input_line);
-			continue;
+			should_continue = 0; /* Set should_continue to 0 to exit the loop */
+			break;
 		}
 		else
 		{
